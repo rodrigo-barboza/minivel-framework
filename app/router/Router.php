@@ -51,6 +51,8 @@ class Router {
                 break;
         }
 
+        $match = false;
+
         foreach ($method as $pattern => $param) {
             $pattern_regex = preg_replace('(\{[a-z0-9]{0,}\})', '([a-z0-9]{0,})', $pattern);
             $dynamic_url_regex = '#^('. $pattern_regex .')*$#i';
@@ -81,13 +83,19 @@ class Router {
 
                     $current_controller->$controller_action($arg);
 
+                    $match = true;
                     break;
                 }
 
                 $param($arg);
 
+                $match = true;
                 break;
             }
+        }
+
+        if (!$match) {
+            $this->view->render('404');
         }
     }
     

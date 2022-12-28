@@ -18,7 +18,7 @@ class View {
         return $instance;
     }
 
-    public function render(string $view_name, array $data)
+    public function render(string $view_name, ?array $data=null)
     {
         if (file_exists("views/$view_name.php")) {
             require "views/$view_name.php";
