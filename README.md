@@ -1,5 +1,5 @@
 # minivel-framework
-A mini php framework inspired by Laravel
+A mini php framework inspired by Laravel developed by Rodrigo Barboza
 
 ## Routing
 The default route file is "web.php", currently supported request methods are only GET and POST. To add a route you can do this:
