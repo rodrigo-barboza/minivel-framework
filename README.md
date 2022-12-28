@@ -35,3 +35,29 @@ And you can access this value of dynamic route on the specified controller:
         echo "received id by dynamic route: ". $data['id'];
     }
 ```
+
+### Additional route files
+you can easily add other route files by adding inside routes and running loadRouteFile() function to add the routes to web.php:
+
+dashboard.php
+```php
+    $this->get('dashboard', function(){
+        echo "dashboard";
+    });
+```
+
+web.php
+```php
+
+    $this->get('', function() {
+        echo 'index';
+    });
+
+    $this->get('home', function() {
+        echo 'home. ';
+    });
+
+    ...
+
+    $this->loadRouteFile('dashboard');
+```
